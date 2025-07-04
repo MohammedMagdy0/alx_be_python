@@ -1,3 +1,4 @@
+# shopping_list_manager.py
 
 def display_menu():
     print("\n--- Shopping List Manager ---")
@@ -26,3 +27,26 @@ def view_list(shopping_list):
             print(f"{idx}. {item}")
     else:
         print("Your shopping list is currently empty.")
+
+def main():
+    shopping_list = []
+    
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-4): ").strip()
+        
+        if choice == '1':
+            add_item(shopping_list)
+        elif choice == '2':
+            remove_item(shopping_list)
+        elif choice == '3':
+            view_list(shopping_list)
+        elif choice == '4':
+            print("Exiting the Shopping List Manager. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+if __name__ == "__main__":
+    main()
+
