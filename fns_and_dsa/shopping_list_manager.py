@@ -1,5 +1,14 @@
 # shopping_list_manager.py
 
+import os
+
+# Optional: Check if a file exists (future use for loading/saving)
+FILENAME = "shopping_data.txt"
+
+def file_exists_and_not_empty(filename):
+    return os.path.isfile(filename) and os.path.getsize(filename) > 0
+
+# ✅ تعريف دالة عرض القائمة
 def display_menu():
     print("\n--- Shopping List Manager ---")
     print("1. Add an item")
@@ -7,6 +16,7 @@ def display_menu():
     print("3. View shopping list")
     print("4. Exit")
 
+# ✅ دوال الإضافة والحذف والعرض
 def add_item(shopping_list):
     item = input("Enter the item to add: ").strip()
     shopping_list.append(item)
@@ -28,25 +38,41 @@ def view_list(shopping_list):
     else:
         print("Your shopping list is currently empty.")
 
+# ✅ البرنامج الرئيسي
 def main():
+    # ✅ إنشاء القائمة
     shopping_list = []
-    
+
+    # Optional: File check
+    if file_exists_and_not_empty(FILENAME):
+        print(f"Note: '{FILENAME}' exists and is not empty. (This is just a check for now)")
+
     while True:
+        # ✅ استدعاء الدالة كل مرة
         display_menu()
-        choice = input("Enter your choice (1-4): ").strip()
+        choice_input = input("Enter your choice (1-4): ").strip()
+
+        # ✅ تأكد من أن الإدخال رقم
+        if not choice_input.isdigit():
+            print("Invalid input. Please enter a number.")
+            continue
         
-        if choice == '1':
+        choice = int(choice_input)
+
+        # ✅ تنفيذ الاختيارات
+        if choice == 1:
             add_item(shopping_list)
-        elif choice == '2':
+        elif choice == 2:
             remove_item(shopping_list)
-        elif choice == '3':
+        elif choice == 3:
             view_list(shopping_list)
-        elif choice == '4':
+        elif choice == 4:
             print("Exiting the Shopping List Manager. Goodbye!")
             break
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
 
+# ✅ نقطة التشغيل الرئيسية
 if __name__ == "__main__":
     main()
 
