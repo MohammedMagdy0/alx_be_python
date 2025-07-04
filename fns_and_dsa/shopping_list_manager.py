@@ -9,7 +9,7 @@ def file_exists_and_not_empty(filename):
 
 # ✅ تعريف القائمة بنفس النصوص المطلوبة
 def display_menu():
-    print("\nShopping List Manager")  # ✅ كما طلب التصحيح
+    print("Shopping List Manager")  # ✅ كما طلب التصحيح
     print("1. Add Item")              # ✅ كما طلب التصحيح
     print("2. Remove Item")
     print("3. View Shopping List")
