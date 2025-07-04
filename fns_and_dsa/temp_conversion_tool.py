@@ -1,8 +1,8 @@
 # temp_conversion_tool.py
 
 # ✅ المتغيرات العالمية
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
 # ✅ تحويل من فهرنهايت إلى مئوي
 def convert_to_celsius(fahrenheit):
